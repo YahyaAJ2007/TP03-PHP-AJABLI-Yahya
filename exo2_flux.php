@@ -1,4 +1,8 @@
 <?php
+/* Auteur : WAFA AIT BAHA 
+    Grp:02
+    TP03-PHP
+*/
 require "config.php";
 echo "<h1>Structures de contrôle et boucles : </h1>";
 function mention($note){
