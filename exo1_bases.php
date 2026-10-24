@@ -1,8 +1,11 @@
 <?php 
-/* Auteur : WAFA AIT BAHA 
-    Grp:02
-    TP03-PHP
+
+/*  Auteur : Yahya AJABLI
+    Groupe : 2
+    IAP-S3
+    PHP_TP03
 */
+
 echo 'Hello PHP<br>';
 #Commentaire ....... 
 

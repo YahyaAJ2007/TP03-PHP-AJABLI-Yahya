@@ -1,4 +1,11 @@
 <?php
+
+/*  Auteur : Yahya AJABLI
+    Groupe : 2
+    IAP-S3
+    PHP_TP03
+*/
+
 require "config.php";
 function mention($note){
     if($note >= 16){

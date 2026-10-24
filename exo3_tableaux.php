@@ -1,26 +1,46 @@
+<?php
+
+/*  Auteur : Yahya AJABLI
+    Groupe : 2
+    IAP-S3
+    PHP_TP03
+*/
+
+function afficher($tab){
+    echo"<table border='1' cellpadding='10'/>";
+            echo"<tr>";
+                echo"<th>Nom</th>";
+                echo"<th>Note</th>";
+            "</tr>";
+            foreach($tab as $nom => $note){
+                echo "<tr>";
+                echo "<td>$nom</td>";
+                echo "<td>$note</td>";
+                echo "</tr>";
+            }
+        echo"</table>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Execice 3 - Tableaux</title>
+    <title>Exercice_03</title>
 </head>
 <body>
-    <?php 
+    <?php
     require "mention.php";
+    require_once 'config.php';
+    $somme = 0;
+    $nbrsEtud = 0;
+    $meilleur = 0;
+    $faible = 20;
     $notes = [ 
-        "Mohamed" => 16,
-        "Ahmed" => 14, 
-        "Hind" => 13,
-        "Aicha" => 15,
-        "Samir" => 13,
-        "Zakaria" => 13,
-        "Rafik" => 10,
-        "Ilham" => 9,
-        "Hamza" => 7,
-        "Sami" => 7,
-        "Noura" => 14
-    ]; 
+    "Mohamed" => 16, "Ahmed" => 14, "Hind" => 13, "Aicha" => 15, 
+    "Samir" => 13, "Zakaria" => 13, "Rafik" => 10, "Ilham" => 9, 
+    "Hamza" => 7, "Sami" => 7, "Noura" => 14 
+    ];
     $effectifs = [
         "Très bien" => 0,
         "Bien" => 0,
@@ -28,71 +48,95 @@
         "Passable" => 0,
         "Ajourné" => 0
     ];
-    $s = 0;
-    $nbrEtud = 0;
-    $meilleur = 0;
-    $faible = 20;
-    $modules = ["Probabilité","Pythhon","MySQL"];
-    echo "<h3>Les modules : </h3>";
+    $modules = ["Probabilité","MySQL","C++"];
+    echo "<h2>Les Modules : </h2>";
     foreach($modules as $module){
-        echo "- $module <br>";
+        echo "- $module<br>";
     }
-    echo "<h3>Les modules (par indice) : </h3>";
+    echo "<h2>Les modules (par indice) :</h2>";
     echo "$modules[0] - $modules[1] - $modules[2]";
-    ?>
-    <table border="1" cellpadding="10" cellspacing="0">
+?>
+<h2>Tableaux des Etudiants :</h2>
+    <table border="1" cellspacing="1" cellpadding="10">
         <tr>
             <th>Nom</th>
             <th>Note</th>
             <th>Mention</th>
         </tr>
         <?php
-        echo "<h2>Tableau Des Étudiant : </h2>";
         foreach($notes as $nom => $note){
-            $nbrEtud++;
-            $s += $note;
-            if ($note < SEUIL) {
-                echo "<tr style='color:red;'>";
-            } else {
+            $nbrsEtud++;
+            $somme += $note;
+            if($note < SEUIL){
+                echo"<tr style='color:red;'>";
+            }else{
                 echo "<tr>";
-            }
-            if($note > $meilleur){
+            }   
+            echo"<td>".$nom."</td>";
+            echo"<td>".$note."</td>";
+            echo"<td>".mention($note)."</td>";
+            echo"</tr>";
+            if($meilleur < $note){
                 $meilleur = $note;
-            }
-            if($note < $faible){
+            }if($faible > $note){
                 $faible = $note;
             }
-            echo "<td>$nom</td>";
-            echo "<td>$note</td>";
-            echo "<td>" . mention($note) ."</td>";
-            echo "</tr>";
-            $m = mention($note);
-            $effectifs[$m]++;
+            $me = mention($note);
+            $effectifs[$me]++;
         }
-        $moyenne = $s / $nbrEtud;
-        $Somme = array_sum($notes);
-        $count = count($notes);
-        $Max = max($notes);
-        $Min = min($notes);
+        $s = array_sum($notes);
+        $c = count($notes);
+        $m = $s/$c;
+        $max_n = max($notes);
+        $min_n = min($notes);    
+        $moyenne = $somme/$nbrsEtud;
         ?>
-    </table>
-    <?php
-        echo "<h2>Statistiques de la classe :</h2>";
-        echo "Somme : $s <br>";
-        // array_sum($notes)
-        echo "Array_Sum : $Somme <br>";
-        echo "Le nombre d'etudiant : $count<br>";
-        echo "Moyenne : $moyenne <br>";
-        echo "Meilleure note : $meilleur <br>";
-        echo "Plus faible note : $faible <br>";
-        echo "Max note : $Max <br>";
-        echo "Min note : $Min <br>";
-    ?>
-    <?php 
-    echo "<h2>Le nombre d'apprenants par mention : </h2>";
-    foreach($effectifs as $mention =>$n){
-        echo "$mention : $n apprenant(s)<br>";
-    }
-    ?>
+        </table>
+        <h2>Statistiques de classe :</h2>
+        <?php 
+        echo "La somme des notes : $somme<br>";
+        echo "La moyenne des notes : $moyenne<br>";
+        echo "La meilleur note : $meilleur<br>";
+        echo "La plus faible note : $faible<br>";
+        echo"<h2>Statistiques de classe (array_suum _ count _ min _ max) : </h2>";
+        echo "Array_sum = $s<br>";
+        echo "Moyenne = $m<br>";
+        echo "Max note = $max_n<br>";
+        echo "Min note = $min_n<br>";
+        echo "<h2>Le nombre d'apprenants par mention : </h2>";
+        foreach($effectifs as $mention => $nbr){
+            echo "$mention : $nbr apprenants<br>";
+        }
+        ?> 
+        <h2>Tri : </h2>
+        <h3>1. Trié par noms croissants (ksort)</h3>
+            <?php
+            ksort($notes);
+            afficher($notes);
+            ?>
+        </table>
+        <h3>2. Trié par notes décroissants (arsort)</h3>
+        
+            <?php
+            arsort($notes);
+            afficher($notes);
+            ?>
+        </table>
+        <h3>3. Trié par noms décroissants (krsort)</h3>
+            <?php
+            krsort($notes);
+            afficher($notes);
+            ?>
+        </table>
+        <h3>2. Trié par notes croissants (asort)</h3>
+            <?php
+            asort($notes);
+            afficher($notes);
+            /*La fonction de tri utiliser sur un tableau indexé comme $modules
+             est la fonction "sort() : Pour un tri croissant" 
+             ou
+             "rsort()" Pour un tri décroissant*/
+            ?>
+        </table>
 </body>
 </html>
