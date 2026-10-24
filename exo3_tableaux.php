@@ -128,7 +128,7 @@ function afficher($tab){
             afficher($notes);
             ?>
         </table>
-        <h3>2. Trié par notes croissants (asort)</h3>
+        <h3>4. Trié par notes croissants (asort)</h3>
             <?php
             asort($notes);
             afficher($notes);
@@ -138,5 +138,19 @@ function afficher($tab){
              "rsort()" Pour un tri décroissant*/
             ?>
         </table>
+        <?php
+        echo "<h2>Opérateurs de tableaux</h2>";
+        $a = ["x" => 1, "y" => 2];
+        $b = ["y" => 2, "x" => 1];
+        // Les même valeur mais dans un ordre différent
+        print_r($a + $b);echo"<br>";
+        // "==" Verifier le type de clé-valeur, sans tenir compte de leur ordre.
+        var_dump($a == $b);echo"<br>";
+        /* "===" Comparer le type et le contenu, 
+        (vérifie que les deux tableaux possèdent les mêmes paires clé-valeur,
+         dans le même ordre) */
+
+        var_dump($a === $b);
+        ?>
 </body>
 </html>
