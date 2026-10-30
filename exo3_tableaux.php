@@ -1,11 +1,19 @@
-<?php
+<?php require "includes/entete_inc.php"; ?>
+<?php require "includes/menu_inc.php"; ?>
 
-/*  Auteur : Yahya AJABLI
+<?php /*  
+    Auteur : Yahya AJABLI
     Groupe : 2
     IAP-S3
     PHP_TP03
-*/
+*/?>
 
+<?php //include "includes/inexistant.php"; ?>
+<!-- `include` affiche un message d'erreur sans interrompre l'exécution du code. -->
+
+<?php //require "includes/inexistant.php"; ?>
+<!-- Tandis que `require` interrompt l'exécution de tout le reste du code et affiche un message d'erreur. -->
+<?php
 function afficher($tab){
     echo"<table border='1' cellpadding='10'/>";
             echo"<tr>";
@@ -154,3 +162,16 @@ function afficher($tab){
         ?>
 </body>
 </html>
+<?php include "includes/pied_inc.php";?>
+<?php //include "includes/pied_inc.php"; 
+/*
+include : permet d'inclure plusieurs fois le même fichier.
+*/
+?>
+<?php //include_once "includes/pied_inc.php"; ?>
+<?php //include_once "includes/pied_inc.php"; 
+/*
+include_once : permet d'inclure un fichier une seule fois,
+même si on appelle cette instruction plusieurs fois.
+*/
+?>
