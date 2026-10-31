@@ -8,7 +8,7 @@ if(isset($_POST["nom"],$_POST["note_info"],$_POST["note_math"])){
     if (!is_numeric($note_info) || !is_numeric($note_math)) {
                 echo "Erreur : les notes doivent être numériques.";
     }elseif($note_info > NOTE_MAX || $note_info < NOTE_MIN || $note_math > NOTE_MAX || $note_math < NOTE_MIN){
-        echo "Erreur : les notes doivent être comprises entre ". NOTE_MIN . " et " . NOTE_MAX . ".";
+        echo "Erreur : Les points doivent être compris entre ". NOTE_MIN . " et " . NOTE_MAX . ".";
     }else{
         echo "<h2>Récapitulatif</h2>";
         echo "Nom : ". htmlspecialchars($nom,ENT_QUOTES,'UTF-8') . "<br>";

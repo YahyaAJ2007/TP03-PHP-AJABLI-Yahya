@@ -1,5 +1,5 @@
-<?php require "includes/entete_inc.php"; ?>
-<?php require "includes/menu_inc.php"; ?>
+<?php include "includes/entete_inc.php"; ?>
+<?php include "includes/menu_inc.php"; ?>
 
 <?php /*  
     Auteur : Yahya AJABLI
@@ -15,11 +15,11 @@
 <!-- Tandis que `require` interrompt l'exécution de tout le reste du code et affiche un message d'erreur. -->
 <?php
 function afficher($tab){
-    echo"<table border='1' cellpadding='10'/>";
+    echo"<table border='1' cellpadding='10'>";
             echo"<tr>";
                 echo"<th>Nom</th>";
                 echo"<th>Note</th>";
-            "</tr>";
+            echo "</tr>";
             foreach($tab as $nom => $note){
                 echo "<tr>";
                 echo "<td>$nom</td>";
@@ -129,13 +129,11 @@ function afficher($tab){
             arsort($notes);
             afficher($notes);
             ?>
-        </table>
         <h3>3. Trié par noms décroissants (krsort)</h3>
             <?php
             krsort($notes);
             afficher($notes);
             ?>
-        </table>
         <h3>4. Trié par notes croissants (asort)</h3>
             <?php
             asort($notes);
@@ -145,7 +143,6 @@ function afficher($tab){
              ou
              "rsort()" Pour un tri décroissant*/
             ?>
-        </table>
         <?php
         echo "<h2>Opérateurs de tableaux</h2>";
         $a = ["x" => 1, "y" => 2];

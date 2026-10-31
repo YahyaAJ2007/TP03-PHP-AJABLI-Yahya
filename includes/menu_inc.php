@@ -15,6 +15,7 @@
         <li><a href="info.php">Formulaire GET PHP</a></li>
         <li><a href="saisie.html">Formulaire en POST</a></li>
         <li><a href="traitement.php">Traitemnt POST PHP</a></li>
+        <li><a href="liste.php">Lecture d'un fichier CSV </a></li>
         <li><a href="login.php">Connexion</a></li>
         <li><a href="profil.php">Profil</a></li>
         <li><a href="deconnexion.php">Déconnexion</a></li>

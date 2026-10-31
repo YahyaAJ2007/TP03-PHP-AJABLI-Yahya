@@ -6,7 +6,7 @@
     PHP_TP03
 */
 
-require "config.php";
+require_once  "config.php";
 function mention($note){
     if($note >= 16){
         return "Très bien";
