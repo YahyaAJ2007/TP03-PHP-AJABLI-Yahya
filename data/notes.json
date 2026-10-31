@@ -1,0 +1,42 @@
+[
+    {
+        "nom": "Yahya",
+        "notes": {
+            "note_info": "18",
+            "note_math": "19"
+        },
+        "moyenne": 18.5
+    },
+    {
+        "nom": "ANONYME",
+        "notes": {
+            "note_info": "11",
+            "note_math": "9"
+        },
+        "moyenne": 10
+    },
+    {
+        "nom": "Ahmed",
+        "notes": {
+            "note_info": "11",
+            "note_math": "13"
+        },
+        "moyenne": 12
+    },
+    {
+        "nom": "Othmane",
+        "notes": {
+            "note_info": "15",
+            "note_math": "16"
+        },
+        "moyenne": 15.5
+    },
+    {
+        "nom": "Anonyme",
+        "notes": {
+            "note_info": "9",
+            "note_math": "5"
+        },
+        "moyenne": 7
+    }
+]
